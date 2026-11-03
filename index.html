@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinic Triage Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<header class="top wrap">
+  <p class="kicker">Clinic front desk · 12 triage rules</p>
+  <h1>Clinic Triage Advisor</h1>
+  <p class="lede">Tick what the patient reports. The system chains its rules, then shows the triage level and the reasoning behind it.</p>
+</header>
+ 
+<main class="wrap grid">
+  <section class="panel" aria-labelledby="h-form">
+    <div class="panel-head">
+      <h2 id="h-form">Patient report</h2>
+      <button type="button" class="ghost" id="clear">Clear all</button>
+    </div>
+    <div class="samples" id="samples" role="group" aria-label="Sample patients">
+      <span class="samples-label">Load a sample patient</span>
+    </div>
+    <form id="form" onsubmit="return false">
+      <fieldset><legend>Red flags</legend><div class="checks" data-group="red"></div></fieldset>
+      <fieldset><legend>Fever and infection</legend><div class="checks" data-group="fever"></div></fieldset>
+      <fieldset><legend>Throat, nose and chest</legend><div class="checks" data-group="resp"></div></fieldset>
+      <fieldset><legend>Body and stomach</legend><div class="checks" data-group="body"></div></fieldset>
+      <fieldset><legend>Patient background</legend><div class="checks" data-group="who"></div></fieldset>
+    </form>
+  </section>
+ 
+  <section class="panel result" aria-labelledby="h-result" aria-live="polite">
+    <h2 id="h-result" style="margin-bottom:14px">Triage decision</h2>
+    <div id="out"></div>
+  </section>
+</main>
+ 
+<section class="wrap kb">
+  <details class="panel">
+    <summary>Knowledge base: all 12 rules</summary>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Rule</th><th>IF</th><th>THEN</th></tr></thead>
+        <tbody id="kb-body"></tbody>
+      </table>
+    </div>
+  </details>
+</section>
+ 
+<footer class="wrap">
+  This is an educational expert system built for a knowledge engineering lab. It is not medical advice and does not replace a doctor. In a real emergency, call your local emergency number.
+</footer>
+ 
+<script src="script.js"></script>
+</body>
+</html>
+ 
